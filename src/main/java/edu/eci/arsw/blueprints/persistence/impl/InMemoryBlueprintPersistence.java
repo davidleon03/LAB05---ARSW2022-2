@@ -13,6 +13,7 @@ import edu.eci.arsw.blueprints.persistence.BlueprintsPersistence;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -26,6 +27,7 @@ import org.springframework.stereotype.Component;
 @Qualifier("Memory")
 
 public class InMemoryBlueprintPersistence implements BlueprintsPersistence{
+	private final int val=3;
 
     private final Map<Tuple<String,String>,Blueprint> blueprints=new HashMap<>();
 
@@ -35,7 +37,23 @@ public class InMemoryBlueprintPersistence implements BlueprintsPersistence{
         Blueprint bp=new Blueprint("_authorname_", "_bpname_ ",pts);
         blueprints.put(new Tuple<>(bp.getAuthor(),bp.getName()), bp);
         
-    }    
+    }  
+    public void inicializar() {
+    	Random random = new Random();
+    	// se crean los puntos
+        Point[] points = new Point[10];
+        for(int j=0;j<10;j++){
+            points[j] = new Point(random.nextInt(100), random.nextInt(100) );
+        }
+    	//dos prints asociados a un mismo autor
+        for(int i = 0;i<2;i++){
+            Blueprint newBp = new Blueprint("David leon","Blueprint"+i, points);
+        }
+        //tres planos por defecto
+        Blueprint new1 = new Blueprint("jaun","Blueprint1", points);
+        Blueprint new2 = new Blueprint("pedro","Blueprint2", points);
+        Blueprint new3 = new Blueprint("jose","Blueprint3", points);
+    }
     
     @Override
     public void saveBlueprint(Blueprint bp) throws BlueprintPersistenceException {
