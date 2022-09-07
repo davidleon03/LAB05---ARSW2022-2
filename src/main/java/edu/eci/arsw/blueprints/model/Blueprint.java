@@ -8,7 +8,6 @@ import java.util.Objects;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-@EntityScan
 
 public class Blueprint {
 
