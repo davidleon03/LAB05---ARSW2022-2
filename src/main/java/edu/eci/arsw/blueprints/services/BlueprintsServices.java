@@ -16,6 +16,7 @@ import edu.eci.arsw.blueprints.persistence.BlueprintsPersistence;
 
 import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
@@ -80,6 +81,10 @@ public class BlueprintsServices {
     }
     public void applyFilter(Set<Blueprint> bps) throws BlueprintNotFoundException, BlueprintPersistenceException {
         filter.filterBlueprints(bps);
+    }
+    public void updateBluePrint(String author, String bpname, List<Point> points) throws BlueprintNotFoundException {
+        Blueprint bp = getBlueprint(author,bpname);
+        bp.setPoints(points);
     }
 
 }
