@@ -10,4 +10,5 @@ public interface Filtro {
 
 
     public Set<Blueprint> multiFiltroBluePrint(Set<Blueprint> blueprints);
+    
 }

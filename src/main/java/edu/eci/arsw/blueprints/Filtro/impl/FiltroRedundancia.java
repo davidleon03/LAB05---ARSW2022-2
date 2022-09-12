@@ -2,13 +2,17 @@ package edu.eci.arsw.blueprints.Filtro.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import edu.eci.arsw.blueprints.model.Blueprint;
 import edu.eci.arsw.blueprints.model.Point;
 
-@Service
+@Component
+@Qualifier("Redundancy")
 public class FiltroRedundancia implements InterFiltro{
 	@Override
 	public Blueprint filtrar(Blueprint bp)
@@ -80,5 +84,17 @@ public class FiltroRedundancia implements InterFiltro{
         Blueprint finala=new Blueprint(bp.getAuthor(),bp.getName(),nuva_lista);
         
 		return finala;
+	}
+
+	@Override
+	public void filterBlueprint(Blueprint bp) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void filterBlueprints(Set<Blueprint> blueprints) {
+		// TODO Auto-generated method stub
+		
 	}
 }

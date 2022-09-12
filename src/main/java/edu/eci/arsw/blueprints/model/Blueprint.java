@@ -27,6 +27,7 @@ public class Blueprint {
         this.name=name;
         points=new ArrayList<>();
     }
+    public void setPoints(List<Point> newPoints) {this.points = newPoints;}
 
     public Blueprint() {
     }    
