@@ -58,12 +58,22 @@ Del anterior diagrama de componentes (de alto nivel), se desprendió el siguient
 	
 	```
 	Y luego enviando una petición GET a: http://localhost:8080/blueprints. Rectifique que, como respuesta, se obtenga un objeto jSON con una lista que contenga el detalle de los planos suministados por defecto, y que se haya aplicado el filtrado de puntos correspondiente.
+- Sin ordenar
+![image](https://user-images.githubusercontent.com/98216838/189748645-fd0feaab-1ec3-4634-ad34-f88acbc294d4.png)
+- Ordenado
+![image](https://user-images.githubusercontent.com/98216838/189753100-be926d47-aea3-4494-aad9-a9aa2b8c129a.png)
 
 
 5. Modifique el controlador para que ahora, acepte peticiones GET al recurso /blueprints/{author}, el cual retorne usando una representación jSON todos los planos realizados por el autor cuyo nombre sea {author}. Si no existe dicho autor, se debe responder con el código de error HTTP 404. Para esto, revise en [la documentación de Spring](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html), sección 22.3.2, el uso de @PathVariable. De nuevo, verifique que al hacer una petición GET -por ejemplo- a recurso http://localhost:8080/blueprints/juan, se obtenga en formato jSON el conjunto de planos asociados al autor 'juan' (ajuste esto a los nombres de autor usados en el punto 2).
 
+
+
+![image](https://user-images.githubusercontent.com/98216838/189755367-927ac652-b31f-49b4-8e72-e2fcbf7e54a6.png)
+
+
 6. Modifique el controlador para que ahora, acepte peticiones GET al recurso /blueprints/{author}/{bpname}, el cual retorne usando una representación jSON sólo UN plano, en este caso el realizado por {author} y cuyo nombre sea {bpname}. De nuevo, si no existe dicho autor, se debe responder con el código de error HTTP 404. 
 
+![image](https://user-images.githubusercontent.com/98216838/189756231-363eda25-866d-4153-8be5-22a9780fbdd5.png)
 
 
 ### Parte II
