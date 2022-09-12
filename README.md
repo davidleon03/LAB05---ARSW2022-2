@@ -93,6 +93,7 @@ Del anterior diagrama de componentes (de alto nivel), se desprendió el siguient
  	
 	}
 	```	
+![image](https://user-images.githubusercontent.com/98216838/189760529-18e113c8-332b-4f36-a652-fb30c1c830cf.png)
 
 
 2.  Para probar que el recurso ‘planos’ acepta e interpreta
@@ -112,10 +113,36 @@ Del anterior diagrama de componentes (de alto nivel), se desprendió el siguient
 	Nota: puede basarse en el formato jSON mostrado en el navegador al consultar una orden con el método GET.
 
 
+- Teniendo en cuenta el json que vamos a ingresar es el siguiente
+
+
+{"author":"David leon","points":[{"x":56,"y":19},{"x":52,"y":16}],"name":"Pruebapost"}
+
+- El comando quedaria
+
+curl -i -X POST -HContent-Type:application/json -HAccept:application/json http://localhost:9090/blueprints/addBlueprint -d '{"author":"David leon","points":[{"x":56,"y":19},{"x":52,"y":16}],"name":"Pruebapost"}'
+
+- Si lo realizamos en consola nos da error
+
+![image](https://user-images.githubusercontent.com/98216838/189765795-ef114327-c62c-4e3e-9026-8a557b41fd4d.png)
+
+- lo realizamos en el bash de git y no da error
+
+![image](https://user-images.githubusercontent.com/98216838/189765839-046a8767-db13-4038-a7a6-dc215d4ce356.png)
+
+
 3. Teniendo en cuenta el autor y numbre del plano registrado, verifique que el mismo se pueda obtener mediante una petición GET al recurso '/blueprints/{author}/{bpname}' correspondiente.
+
+![image](https://user-images.githubusercontent.com/98216838/189765972-876cdab2-98f6-4036-b6c4-df6e4d3c83ba.png)
 
 4. Agregue soporte al verbo PUT para los recursos de la forma '/blueprints/{author}/{bpname}', de manera que sea posible actualizar un plano determinado.
 
+- Antes
+![image](https://user-images.githubusercontent.com/98216838/189768253-c489c4f9-6212-4b3f-b687-2240e436cc3b.png)
+
+- Despues, utilizamos el comando curl -i -X POST -HContent-Type:application/json -HAccept:application/json http://localhost:9090/blueprints/David%20leon/Blueprint1 -d '{"points":[{"x":56,"y":19},{"x":52,"y":16}]}'
+
+![image](https://user-images.githubusercontent.com/98216838/189768627-67713e45-3466-4d1c-a8cd-a5605ed0a20a.png)
 
 ### Parte III
 
