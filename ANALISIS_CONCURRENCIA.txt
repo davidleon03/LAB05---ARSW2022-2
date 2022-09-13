@@ -16,5 +16,5 @@ comportamientos no deseados como las anteriormente mencionadas condiciones de ca
 
 - SOLUCION
 Como solución a las secciones críticas y condiciones de carrera que se presentan. Se vuelve Thread-Safe la persistencia implementada, la cual en este
-caso es InMemoryBlueprintPersistence. Esto genera que el recurso compartido no pueda ser usado por más de un hilo a la vez. El recurso era el hashMap blueprints.
+caso es InMemoryBlueprintPersistence. Esto genera que el recurso compartido no pueda ser usado por más de un hilo a la vez. El recurso era el hashMap blueprints y pasa a ser un ConcurrentHashMap.
 
