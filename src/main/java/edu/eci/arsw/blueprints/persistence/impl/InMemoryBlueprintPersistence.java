@@ -15,6 +15,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Random;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -29,7 +30,9 @@ import org.springframework.stereotype.Component;
 public class InMemoryBlueprintPersistence implements BlueprintsPersistence{
 	private final int val=3;
 
-    private final Map<Tuple<String,String>,Blueprint> blueprints=new HashMap<>();
+    //private final Map<Tuple<String,String>,Blueprint> blueprints=new HashMap<>();
+
+    private final ConcurrentHashMap<Tuple<String,String>,Blueprint> blueprints=new ConcurrentHashMap<>();
 
     public InMemoryBlueprintPersistence() {
         //load stub data
